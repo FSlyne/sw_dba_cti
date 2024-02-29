@@ -20,6 +20,7 @@ telemetry.c -  stat counters for traf port
 sw-dba-main.c - traffic steering for IPV4, IPV6, ARP and other, related to traf port.
 
 Build 
+Update traf port and ctrl port in setup_sw-dba.sh, and at top of sw-dba-main.c
 ninja -C build 
 ./build/examples/dpdk-sw-dba eno7,0,1
 
@@ -29,6 +30,7 @@ ninja -C builddebug
 .. set args eno7,0,1
 
 Environment
-
+Tibit
+At ONU, OLT service 0 (XGEM and TCONT). UNI Ports 261 UNI-ETH5 (10G Etherent) or 257 UNI-ETH1 (1G Ethernet)
 
 
