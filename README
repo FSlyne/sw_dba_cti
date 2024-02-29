@@ -18,6 +18,7 @@ Changes
 port_init.c - added port_diag() function
 telemetry.c -  stat counters for traf port
 sw-dba-main.c - traffic steering for IPV4, IPV6, ARP and other, related to traf port.
+message_gen.c - accepts variable bandwidth requests
 
 Build 
 Update traf port and ctrl port in setup_sw-dba.sh, and at top of sw-dba-main.c
