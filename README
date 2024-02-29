@@ -32,5 +32,6 @@ ninja -C builddebug
 Environment
 Tibit
 At ONU, OLT service 0 (XGEM and TCONT). UNI Ports 261 UNI-ETH5 (10G Etherent) or 257 UNI-ETH1 (1G Ethernet)
+At OLT, OLT service 0 defined as NNI VLAN s0.c0.c0, PON VLAN s0.c0.c0
 
 
