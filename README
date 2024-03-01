@@ -1,0 +1,38 @@
+Definitions at head of sw-dba-main.c
+
+#define OVERRIDE_BW             32768  - default
+#define CTRL_PORT               "0000:b7:00.1"
+#define TRAF_PORT               "0000:67:00.3"
+#define ZMQ_FEATURE             - enable ZMQ feature at compilation time.
+
+scripts directory
+setup_sw-dba.sh - 2 ports (traf, ctrl), with rx_hash on. Separation of Traf source and PON controller interfaces.
+setup_sw-dba2.sh - 2 ports (traf, ctrl), rx_hash off, queue ids for udp, tcp, ip etc. Separation of Traf source and PON controller interfaces.
+setup_sw-dba-orig.sh - 1 port upstream (ctrl+traf). Traf source collocated with PON Controller
+
+zmq directory
+zmq_pub.c - dummy zmq broker
+Added zmq_dep = dependency('libzmq') to meson.build
+
+Changes
+port_init.c - added port_diag() function
+telemetry.c -  stat counters for traf port
+sw-dba-main.c - traffic steering for IPV4, IPV6, ARP and other, related to traf port.
+message_gen.c - accepts variable bandwidth requests
+
+Build 
+Update traf port and ctrl port in setup_sw-dba.sh, and at top of sw-dba-main.c
+ninja -C build 
+./build/examples/dpdk-sw-dba eno7,0,1
+
+Build debug
+ninja -C builddebug
+./builddebug/examples/dpdk-sw-db
+.. set args eno7,0,1
+
+Environment
+Tibit
+At ONU, OLT service 0 (XGEM and TCONT). UNI Ports 261 UNI-ETH5 (10G Etherent) or 257 UNI-ETH1 (1G Ethernet)
+At OLT, OLT service 0 defined as NNI VLAN s0.c0.c0, PON VLAN s0.c0.c0
+
+
