@@ -1,7 +1,6 @@
-Definitions at head of sw-dba-main.c
+Containerised PON Controller and threaded zmq
 
 #define OVERRIDE_BW             32768  - default
-#define CTRL_PORT               "0000:b7:00.1"
 #define TRAF_PORT               "0000:67:00.3"
 #define ZMQ_FEATURE             - enable ZMQ feature at compilation time.
 
